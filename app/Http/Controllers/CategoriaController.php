@@ -40,8 +40,11 @@ class CategoriaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-        
+    {  
+        if($request->nome == null){
+             Session::flash('error','Preencha os campos corretamente');
+            return Redirect::to('categoria');
+        }
         $categoria = new Categoria();
         
         $categoria->fill($request->all());

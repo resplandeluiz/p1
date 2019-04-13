@@ -42,7 +42,10 @@ class PagamentoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        
+        
+         
         $pagamento = new Pagamento();
         
         $pagamento->fill($request->all());
@@ -73,8 +76,8 @@ class PagamentoController extends Controller
     {
         $pagamento = Pagamento::with('categoria')->where('id',$id)->first();
         
-        $pagamentos = Pagamento::with('categoria')->get();
-    
+        
+        $pagamentos = Pagamento::all();
         $categorias = Categoria::where('id','<>',$pagamento->categoria_id)->get();
         
         return view('pagamento.index',compact('pagamento','pagamentos','categorias'));

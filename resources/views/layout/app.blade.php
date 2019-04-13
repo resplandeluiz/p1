@@ -69,8 +69,18 @@
             
         </main>
     </div>
+    
+     <script>
+       
+       $("#my-form").conversationalForm({
+        
+});
+       
+   </script>
      <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js" ></script>
+    <script src=" {{ asset('js/form.conversation.js') }}" ></script>
+  
  
 </body>
 </html>

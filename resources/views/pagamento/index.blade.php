@@ -7,7 +7,7 @@
 <div class="card">
   <div class="card-body">
     @if($pagamento->id  == "")
-  <form action="pagamento" method="POST">
+  <form action="pagamento" id="my-form"  method="POST">
     @else
     {{ Form::model('', array('route' => array('pagamento.update', $pagamento->id), 'method' => 'PUT')) }}
     @endif
@@ -20,17 +20,14 @@
   
     
      <label>Data</label>
-    <input type="text" class="form-control" name="data" aria-describedby="emailHelp" value="{{$pagamento->data}}" placeholder="Nome da Categoria">
+    <input type="text" class="form-control" name="data" aria-describedby="emailHelp" required value="{{$pagamento->data}}" placeholder="Que dia você pagou isto ?">
     
      <label>Descrição</label>
     
-    <textarea class="form-control" name="descricao" aria-describedby="emailHelp" placeholder="O que você ta pagando ?">
-      {{$pagamento->descricao}}
-      
-    </textarea>
+    <textarea class="form-control" name="descricao" aria-describedby="emailHelp" required placeholder="O que você ta pagando ?">{{$pagamento->descricao}}</textarea>
      
      <label>Valor</label>
-    <input type="text" class="form-control" name="valor" aria-describedby="emailHelp" value="{{$pagamento->valor}}"  placeholder="Quanto foi ?">
+    <input type="text" class="form-control" name="valor" aria-describedby="emailHelp"required  value="{{$pagamento->valor}}"  placeholder="Quanto foi ?">
     
     <label>Categorias</label>
     <select class="form-control" name="categoria_id">
