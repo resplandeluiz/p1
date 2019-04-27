@@ -40,7 +40,7 @@
             <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            @if(Session::has('message'))
+@if(Session::has('message'))
 <p class="alert alert-success">{{ Session::get('message') }}</p>
 @endif
 

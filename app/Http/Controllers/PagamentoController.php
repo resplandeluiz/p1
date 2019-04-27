@@ -75,8 +75,6 @@ class PagamentoController extends Controller
     public function edit($id)
     {
         $pagamento = Pagamento::with('categoria')->where('id',$id)->first();
-        
-        
         $pagamentos = Pagamento::all();
         $categorias = Categoria::where('id','<>',$pagamento->categoria_id)->get();
         
@@ -98,6 +96,7 @@ class PagamentoController extends Controller
         $pagamento->save();
         
         $pagamento = new Pagamento();
+        
         Session::flash('message','Atualizado com sucesso');
         return Redirect::to('pagamento');
     }
